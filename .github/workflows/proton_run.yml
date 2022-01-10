@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     
     outputs:
-      role-arn: ${{ steps.get-data.outputs.role-arn }}
+      role_arn: ${{ steps.get-data.outputs.role-arn }}
       environment: ${{ steps.get-data.outputs.environment }}
       resource-arn: ${{ steps.get-data.outputs.resource-arn }}
       working-directory: ${{ steps.get-data.outputs.working-directory }}
       deployment-id: ${{ steps.get-data.outputs.deployment-id }}
-      region: ${{ steps.get-data.outputs.region }}
+      aws_region: ${{ steps.get-data.outputs.region }}
     
     permissions:
       id-token: write
