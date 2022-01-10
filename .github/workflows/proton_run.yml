@@ -18,12 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     
     outputs:
-      role_arn: ${{ steps.get-data.outputs.role-arn }}
+      role_arn: ${{ steps.get-data.outputs.role_arn }}
       environment: ${{ steps.get-data.outputs.environment }}
       resource-arn: ${{ steps.get-data.outputs.resource-arn }}
       working-directory: ${{ steps.get-data.outputs.working-directory }}
       deployment-id: ${{ steps.get-data.outputs.deployment-id }}
-      aws_region: ${{ steps.get-data.outputs.region }}
+      aws_region: ${{ steps.get-data.outputs.aws_region }}
     
     permissions:
       id-token: write
@@ -95,10 +95,10 @@ jobs:
         echo "::set-output name=environment::$environment_name"
         
         role_arn=$(jq -r --arg env $environment_name '.[$env]["role"]' env_config.json)
-        echo "::set-output name=role-arn::$role_arn"
+        echo "::set-output name=role_arn::$role_arn"
 
-        region=$(jq -r --arg env $environment_name '.[$env]["region"]' env_config.json)
-        echo "::set-output name=region::$region"
+        aws_region=$(jq -r --arg env $environment_name '.[$env]["region"]' env_config.json)
+        echo "::set-output name=aws_region::$aws_region"
     
   call-terraform-workflow:
     needs: get-deployment-data
