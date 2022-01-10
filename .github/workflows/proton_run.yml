@@ -102,7 +102,7 @@ jobs:
     
   call-terraform-workflow:
     needs: get-deployment-data
-    uses: ./.github/workflows/terraform.yml
+    uses: ./.github/workflows/terraform
     with:
       role_arn: ${{ needs.get-deployment-data.outputs.role-arn }}
       environment: ${{ needs.get-deployment-data.outputs.environment }}
