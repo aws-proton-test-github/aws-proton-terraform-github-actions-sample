@@ -1,5 +1,5 @@
 {
-    "sample-vpc-environment-template": {
+    "sample-vpc-environment": {
         "role": "arn:aws:iam::123456789:role/TerraformGitHubActionsRole",
         "region": "us-west-2"
     }
