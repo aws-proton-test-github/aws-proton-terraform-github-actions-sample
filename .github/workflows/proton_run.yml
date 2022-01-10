@@ -104,9 +104,9 @@ jobs:
     needs: get-deployment-data
     uses: augentry/aws-proton-terraform-github-actions-sample/.github/workflows/terraform.yml@main
     with:
-      role_arn: ${{ needs.get-deployment-data.outputs.role-arn }}
+      role_arn: ${{ needs.get-deployment-data.outputs.role_arn }}
       environment: ${{ needs.get-deployment-data.outputs.environment }}
       resource_arn: ${{ needs.get-deployment-data.outputs.resource-arn }}
       working_directory: ${{ needs.get-deployment-data.outputs.working-directory }}
       deployment_id: ${{ needs.get-deployment-data.outputs.deployment-id }}
-      aws_region: ${{ needs.get-deployment-data.outputs.region }}
+      aws_region: ${{ needs.get-deployment-data.outputs.aws_region }}
