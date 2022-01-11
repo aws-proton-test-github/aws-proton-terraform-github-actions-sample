@@ -25,9 +25,9 @@ aws cloudformation create-stack --stack-name aws-proton-terraform-role-stack \
    --capabilities CAPABILITY_NAMED_IAM
 ```
 4. Open the file `env_config.json`. Add a new object to the configuration dictionary where the key is `ENVIRONMENT_NAME`, `role` is the `Role` output from the stack created in (3), and the region with `REGION`. This will tell Terraform the role and region to use for deployments. You can use different roles for each environment by adding them to this file
-5. Open the file .github/workflows/terraform.yml and update `bucket` used for the `terraform init` command with the `BucketName` output from (3). This will tell Terraform where to store the state file
+5. Open the file `.github/workflows/terraform.yml` and update `bucket` used for the `terraform init` command with the `BucketName` output from (3). This will tell Terraform where to store the state file
 6. Commit your changes and push them to your forked repository.
-7. Take the sample template and create a Proton environment template by following the instructions [here](https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html). Replace make sure to replace `TEMPLATE_BUCKET` with the name of the bucket in which you would like to store your Proton templates.
+7. Take the sample template and create a Proton environment template by following the instructions [here](https://docs.aws.amazon.com/proton/latest/adminguide/template-create.html). Make sure to replace `TEMPLATE_BUCKET` with the name of the bucket in which you would like to store your Proton templates.
 ```
 tar -zcvf sample-vpc-environment-template.tar.gz sample-templates/sample-vpc-environment-template/
 aws s3 cp sample-vpc-environment-template.tar.gz s3://your-s3-bucket/sample-vpc-environment-template.tar.gz --region REGION
@@ -46,7 +46,7 @@ aws proton update-environment-template-version \
         --status "PUBLISHED"
         --region REGION
 ```
-7. Register your repository with Proton by following the instructions [here](https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-repo.html) For
+7. Register your repository with Proton by following the instructions [here](https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-repo.html) 
 8. Deploy your environment in Proton by following the instructions [here](https://docs.aws.amazon.com/proton/latest/adminguide/ag-create-env.html#ag-create-env-pull-request). Change `GITHUB_USER` to be name of the GitHub account with the forked repository.
 ```
  aws proton create-environment \
