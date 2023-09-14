@@ -1,0 +1,10 @@
+{
+  "deploymentId" : "a149878a-4688-4369-84ba-e7569404acab",
+  "isResourceDeleted" : false,
+  "resourceMetadata" : {
+    "arn" : "arn:aws:proton:us-east-1:175441209007:service/test-service/pipeline",
+    "templateArn" : "arn:aws:proton:us-east-1:175441209007:service-template/scheduled-ecs-ec2-svc",
+    "templateMajorVersion" : "1",
+    "templateMinorVersion" : "0"
+  }
+}
